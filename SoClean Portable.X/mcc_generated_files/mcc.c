@@ -1,5 +1,5 @@
 /**
-  @Generated PIC10 / PIC12 / PIC16 / PIC18 MCUs Source File
+  @Generated PIC10 / PIC12 / PIC16 / PIC18 MCUs  Source File
 
   @Company:
     Microchip Technology Inc.
@@ -8,17 +8,17 @@
     mcc.c
 
   @Summary:
-    This is the mcc.c file generated using PIC10 / PIC12 / PIC16 / PIC18 MCUs
+    This is the mcc.c file generated using PIC10 / PIC12 / PIC16 / PIC18 MCUs 
 
   @Description:
     This header file provides implementations for driver APIs for all modules selected in the GUI.
     Generation Information :
-        Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs - 1.55
+        Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs  - 1.45
         Device            :  PIC12F1501
-        Driver Version    :  2.00
+        Driver Version    :  1.02
     The generated drivers are tested against the following:
-        Compiler          :  XC8 1.43 or later
-        MPLAB             :  MPLAB X 4.00
+        Compiler          :  XC8 1.35
+        MPLAB             :  MPLAB X 3.40
 */
 
 /*
@@ -49,7 +49,7 @@
 #pragma config FOSC = INTOSC    // Oscillator Selection Bits->INTOSC oscillator: I/O function on CLKIN pin
 #pragma config WDTE = OFF    // Watchdog Timer Enable->WDT disabled
 #pragma config PWRTE = OFF    // Power-up Timer Enable->PWRT disabled
-#pragma config MCLRE = ON    // MCLR Pin Function Select->MCLR/VPP pin function is MCLR
+#pragma config MCLRE = OFF    // MCLR Pin Function Select->MCLR/VPP pin function is digital input
 #pragma config CP = OFF    // Flash Program Memory Code Protection->Program memory code protection is disabled
 #pragma config BOREN = ON    // Brown-out Reset Enable->Brown-out Reset enabled
 #pragma config CLKOUTEN = OFF    // Clock Out Enable->CLKOUT function is disabled. I/O or oscillator function on the CLKOUT pin
@@ -59,10 +59,9 @@
 #pragma config STVREN = ON    // Stack Overflow/Underflow Reset Enable->Stack Overflow or Underflow will cause a Reset
 #pragma config BORV = LO    // Brown-out Reset Voltage Selection->Brown-out Reset Voltage (Vbor), low trip point selected.
 #pragma config LPBOR = OFF    // Low-Power Brown Out Reset->Low-Power BOR is disabled
-#pragma config LVP = ON    // Low-Voltage Programming Enable->Low-voltage programming enabled
+#pragma config LVP = OFF    // Low-Voltage Programming Enable->High-voltage on MCLR/VPP must be used for programming
 
 #include "mcc.h"
-
 
 void SYSTEM_Initialize(void)
 {
@@ -80,8 +79,6 @@ void OSCILLATOR_Initialize(void)
 {
     // SCS FOSC; IRCF 500KHz_MF; 
     OSCCON = 0x38;
-    // SBOREN disabled; BORFS disabled; 
-    BORCON = 0x00;
 }
 
 void WDT_Initialize(void)

@@ -1,5 +1,5 @@
 /**
-  @Generated PIC10 / PIC12 / PIC16 / PIC18 MCUs Header File
+  @Generated PIC10 / PIC12 / PIC16 / PIC18 MCUs  Header File
 
   @Company:
     Microchip Technology Inc.
@@ -8,17 +8,17 @@
     mcc.h
 
   @Summary:
-    This is the mcc.h file generated using PIC10 / PIC12 / PIC16 / PIC18 MCUs
+    This is the mcc.h file generated using PIC10 / PIC12 / PIC16 / PIC18 MCUs 
 
   @Description:
     This header file provides implementations for driver APIs for all modules selected in the GUI.
     Generation Information :
-        Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs - 1.55
+        Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs  - 1.45
         Device            :  PIC12F1501
-        Driver Version    :  2.00
+        Version           :  1.02
     The generated drivers are tested against the following:
-        Compiler          :  XC8 1.43 or later
-        MPLAB             :  MPLAB X 4.00
+        Compiler          :  XC8 1.35
+        MPLAB             :  MPLAB X 3.40
 */
 
 /*
@@ -50,9 +50,9 @@
 #include <stdint.h>
 #include <stdbool.h>
 #include "interrupt_manager.h"
+#include "adc.h"
 #include "tmr1.h"
 #include "tmr2.h"
-#include "adc.h"
 #include "tmr0.h"
 
 #define _XTAL_FREQ  500000

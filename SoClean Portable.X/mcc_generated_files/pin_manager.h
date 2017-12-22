@@ -110,6 +110,16 @@
 #define ADC_Input_SetAnalogMode()  do { ANSELAbits.ANSA2 = 1; } while(0)
 #define ADC_Input_SetDigitalMode() do { ANSELAbits.ANSA2 = 0; } while(0)
 
+// get/set PUSHBUTTON aliases
+#define PUSHBUTTON_TRIS               TRISAbits.TRISA3
+#define PUSHBUTTON_PORT               PORTAbits.RA3
+#define PUSHBUTTON_WPU                WPUAbits.WPUA3
+#define PUSHBUTTON_GetValue()           PORTAbits.RA3
+#define PUSHBUTTON_SetDigitalInput()    do { TRISAbits.TRISA3 = 1; } while(0)
+#define PUSHBUTTON_SetDigitalOutput()   do { TRISAbits.TRISA3 = 0; } while(0)
+#define PUSHBUTTON_SetPullup()      do { WPUAbits.WPUA3 = 1; } while(0)
+#define PUSHBUTTON_ResetPullup()    do { WPUAbits.WPUA3 = 0; } while(0)
+
 // get/set OZAP_ON aliases
 #define OZAP_ON_TRIS               TRISAbits.TRISA5
 #define OZAP_ON_LAT                LATAbits.LATA5

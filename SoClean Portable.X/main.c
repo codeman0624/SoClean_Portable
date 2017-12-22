@@ -65,10 +65,25 @@ void main(void)
     // Disable the Peripheral Interrupts
     //INTERRUPT_PeripheralInterruptDisable();
 
-    while (1)
+    
+    //Wait here wile the pushbutton value is still high (button not pushed)
+    while(PUSHBUTTON_GetValue())
     {
-        // Add your application code
+        __delay_ms(10);
     }
+    
+    __delay_ms(50);     //long debounce for the button
+    
+    //Wait here until the pushbutton is released
+    while(!PUSHBUTTON_GetValue())
+    {
+        __delay_ms(10);
+    }
+    
+    
+    
+    
+    
 }
 /**
  End of File

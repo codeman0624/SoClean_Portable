@@ -8,17 +8,17 @@
     tmr0.c
 
   @Summary
-    This is the generated driver implementation file for the TMR0 driver using PIC10 / PIC12 / PIC16 / PIC18 MCUs
+    This is the generated driver implementation file for the TMR0 driver using PIC10 / PIC12 / PIC16 / PIC18 MCUs 
 
   @Description
     This source file provides APIs for TMR0.
     Generation Information :
-        Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs - 1.55
+        Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs  - 1.45
         Device            :  PIC12F1501
         Driver Version    :  2.00
     The generated drivers are tested against the following:
-        Compiler          :  XC8 1.43
-        MPLAB 	          :  MPLAB X 4.00
+        Compiler          :  XC8 1.35
+        MPLAB             :  MPLAB X 3.40
 */
 
 /*
@@ -63,13 +63,13 @@ void (*TMR0_InterruptHandler)(void);
 void TMR0_Initialize(void)
 {
     // Set TMR0 to the options selected in the User Interface
-	
+
     // PSA assigned; PS 1:256; TMRSE Increment_hi_lo; mask the nWPUEN and INTEDG bits
     OPTION_REG = (uint8_t)((OPTION_REG & 0xC0) | 0xD7 & 0x3F); 
-	
+
     // TMR0 12; 
     TMR0 = 0x0C;
-	
+
     // Load the TMR value to reload variable
     timer0ReloadVal= 12;
 
@@ -82,6 +82,7 @@ void TMR0_Initialize(void)
     // Set Default Interrupt Handler
     TMR0_SetInterruptHandler(TMR0_DefaultInterruptHandler);
 }
+
 
 uint8_t TMR0_ReadTimer(void)
 {

@@ -8,17 +8,17 @@
     tmr2.c
 
   @Summary
-    This is the generated driver implementation file for the TMR2 driver using PIC10 / PIC12 / PIC16 / PIC18 MCUs
+    This is the generated driver implementation file for the TMR2 driver using PIC10 / PIC12 / PIC16 / PIC18 MCUs 
 
   @Description
     This source file provides APIs for TMR2.
     Generation Information :
-        Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs - 1.55
+        Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs  - 1.45
         Device            :  PIC12F1501
         Driver Version    :  2.00
     The generated drivers are tested against the following:
-        Compiler          :  XC8 1.43
-        MPLAB 	          :  MPLAB X 4.00
+        Compiler          :  XC8 1.35
+        MPLAB             :  MPLAB X 3.40
 */
 
 /*
@@ -64,6 +64,9 @@ void TMR2_Initialize(void)
 {
     // Set TMR2 to the options selected in the User Interface
 
+    // T2CKPS 1:64; T2OUTPS 1:16; TMR2ON off; 
+    T2CON = 0x7B;
+
     // PR2 243; 
     PR2 = 0xF3;
 
@@ -79,8 +82,8 @@ void TMR2_Initialize(void)
     // Set Default Interrupt Handler
     TMR2_SetInterruptHandler(TMR2_DefaultInterruptHandler);
 
-    // T2CKPS 1:64; T2OUTPS 1:16; TMR2ON on; 
-    T2CON = 0x7F;
+    // Start TMR2
+    TMR2_StartTimer();
 }
 
 void TMR2_StartTimer(void)

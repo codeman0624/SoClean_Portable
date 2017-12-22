@@ -8,17 +8,17 @@
     adc.h
 
   @Summary
-    This is the generated header file for the ADC driver using PIC10 / PIC12 / PIC16 / PIC18 MCUs
+    This is the generated header file for the ADC driver using PIC10 / PIC12 / PIC16 / PIC18 MCUs 
 
   @Description
     This header file provides APIs for driver for ADC.
     Generation Information :
-        Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs - 1.55
+        Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs  - 1.45
         Device            :  PIC12F1501
         Driver Version    :  2.00
     The generated drivers are tested against the following:
-        Compiler          :  XC8 1.43
-        MPLAB             :  MPLAB X 4.00
+        Compiler          :  XC8 1.35
+        MPLAB             :  MPLAB X 3.40
 */
 
 /*
@@ -286,33 +286,6 @@ adc_result_t ADC_GetConversionResult(void);
 */
 adc_result_t ADC_GetConversion(adc_channel_t channel);
 
-/**
-  @Summary
-    Acquisition Delay for temperature sensor
-
-  @Description
-    This routine should be called when temperature sensor is used.
-    
-  @Preconditions
-    ADC_Initialize() function should have been called before calling this function.
-
-  @Returns
-    None
-
-  @Param
-    None
-
-  @Example
-    <code>
-    uint16_t convertedValue;
-
-    ADC_Initialize();    
-    ADC_StartConversion();
-    ADC_temperatureAcquisitionDelay();
-    convertedValue = ADC_GetConversionResult();
-    </code>
-*/
-void ADC_TemperatureAcquisitionDelay(void);
 
 /**
   @Summary

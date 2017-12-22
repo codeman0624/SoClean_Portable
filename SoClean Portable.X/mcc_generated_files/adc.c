@@ -8,18 +8,19 @@
     adc.c
 
   @Summary
-    This is the generated driver implementation file for the ADC driver using PIC10 / PIC12 / PIC16 / PIC18 MCUs
+    This is the generated driver implementation file for the ADC driver using PIC10 / PIC12 / PIC16 / PIC18 MCUs 
 
   @Description
     This source file provides implementations for driver APIs for ADC.
     Generation Information :
-        Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs - 1.55
+        Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs  - 1.45
         Device            :  PIC12F1501
         Driver Version    :  2.00
     The generated drivers are tested against the following:
-        Compiler          :  XC8 1.43
-        MPLAB             :  MPLAB X 4.00
+        Compiler          :  XC8 1.35
+        MPLAB             :  MPLAB X 3.40
 */
+
 /*
     (c) 2016 Microchip Technology Inc. and its subsidiaries. You may use this
     software and any derivatives exclusively with Microchip products.
@@ -41,6 +42,7 @@
     MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE
     TERMS.
 */
+
 /**
   Section: Included Files
 */
@@ -100,7 +102,7 @@ void ADC_StartConversion()
 bool ADC_IsConversionDone()
 {
     // Start the conversion
-   return ((bool)(!ADCON0bits.GO_nDONE));
+    return ((bool)(!ADCON0bits.GO_nDONE));
 }
 
 adc_result_t ADC_GetConversionResult(void)
@@ -113,10 +115,9 @@ adc_result_t ADC_GetConversion(adc_channel_t channel)
 {
     // select the A/D channel
     ADCON0bits.CHS = channel;    
-    
+
     // Turn on the ADC module
     ADCON0bits.ADON = 1;
-
     // Acquisition time delay
     __delay_us(ACQ_US_DELAY);
 
@@ -132,10 +133,6 @@ adc_result_t ADC_GetConversion(adc_channel_t channel)
     return ((adc_result_t)((ADRESH << 8) + ADRESL));
 }
 
-void ADC_TemperatureAcquisitionDelay(void)
-{
-    __delay_us(200);
-}
 
 void ADC_ISR(void)
 {

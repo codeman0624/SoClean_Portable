@@ -8,17 +8,17 @@
     tmr0.h
 
   @Summary
-    This is the generated header file for the TMR0 driver using PIC10 / PIC12 / PIC16 / PIC18 MCUs
+    This is the generated header file for the TMR0 driver using PIC10 / PIC12 / PIC16 / PIC18 MCUs 
 
   @Description
     This header file provides APIs for TMR0.
     Generation Information :
-        Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs - 1.55
+        Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs  - 1.45
         Device            :  PIC12F1501
         Driver Version    :  2.00
     The generated drivers are tested against the following:
-        Compiler          :  XC8 1.43
-        MPLAB 	          :  MPLAB X 4.00
+        Compiler          :  XC8 1.35
+        MPLAB             :  MPLAB X 3.40
 */
 
 /*
@@ -96,6 +96,7 @@
 */
 void TMR0_Initialize(void);
 
+
 /**
   @Summary
     Reads the TMR0 register.
@@ -115,6 +116,7 @@ void TMR0_Initialize(void);
   @Example
     <code>
     // Initialize TMR0 module
+
     // Read the current value of TMR0
     if(0 == TMR0_ReadTimer())
     {
