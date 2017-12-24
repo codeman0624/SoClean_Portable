@@ -3344,10 +3344,20 @@ extern void (*TMR2_InterruptHandler)(void);
 # 361
 void TMR2_DefaultInterruptHandler(void);
 
-# 57 "mcc_generated_files/tmr2.c"
+# 47 "mcc_generated_files/../Variables.h"
+volatile uint8_t StartupCounter = 120;
+
+# 55
+volatile int CycleTime = 390;
+
+# 69
+uint8_t RunCycle = 0;
+uint8_t Counter = 0;
+
+# 58 "mcc_generated_files/tmr2.c"
 void (*TMR2_InterruptHandler)(void);
 
-# 63
+# 64
 void TMR2_Initialize(void)
 {
 
@@ -3356,7 +3366,7 @@ void TMR2_Initialize(void)
 T2CON = 0x7B;
 
 
-PR2 = 0xF3;
+PR2 = 0x79;
 
 
 TMR2 = 0x00;
@@ -3412,9 +3422,11 @@ void TMR2_ISR(void)
 
 PIR1bits.TMR2IF = 0;
 
-if(TMR2_InterruptHandler)
+
+
+if(RunCycle = 1)
 {
-TMR2_InterruptHandler();
+CycleTime--;
 }
 }
 

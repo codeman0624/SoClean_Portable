@@ -2462,180 +2462,204 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;tmr2.h: 325: void TMR2_SetInterruptHandler(void (* InterruptHandler)(void));
 [; ;tmr2.h: 343: extern void (*TMR2_InterruptHandler)(void);
 [; ;tmr2.h: 361: void TMR2_DefaultInterruptHandler(void);
-"57 mcc_generated_files/tmr2.c
+"47 mcc_generated_files/../Variables.h
+[v _StartupCounter `Vuc ~T0 @X0 1 e ]
+[i _StartupCounter
+-> -> 120 `i `uc
+]
+[; ;Variables.h: 47: volatile uint8_t StartupCounter = 120;
+"55
+[v _CycleTime `Vi ~T0 @X0 1 e ]
+[i _CycleTime
+-> 390 `i
+]
+[; ;Variables.h: 55: volatile int CycleTime = 390;
+"69
+[v _RunCycle `uc ~T0 @X0 1 e ]
+[i _RunCycle
+-> -> 0 `i `uc
+]
+[; ;Variables.h: 69: uint8_t RunCycle = 0;
+"70
+[v _Counter `uc ~T0 @X0 1 e ]
+[i _Counter
+-> -> 0 `i `uc
+]
+[; ;Variables.h: 70: uint8_t Counter = 0;
+"58 mcc_generated_files/tmr2.c
 [v _TMR2_InterruptHandler `*F2518 ~T0 @X0 1 e ]
-[; ;tmr2.c: 57: void (*TMR2_InterruptHandler)(void);
-"63
-[v _TMR2_Initialize `(v ~T0 @X0 1 ef ]
+[; ;tmr2.c: 58: void (*TMR2_InterruptHandler)(void);
 "64
+[v _TMR2_Initialize `(v ~T0 @X0 1 ef ]
+"65
 {
-[; ;tmr2.c: 63: void TMR2_Initialize(void)
-[; ;tmr2.c: 64: {
+[; ;tmr2.c: 64: void TMR2_Initialize(void)
+[; ;tmr2.c: 65: {
 [e :U _TMR2_Initialize ]
 [f ]
-[; ;tmr2.c: 68: T2CON = 0x7B;
-"68
+[; ;tmr2.c: 69: T2CON = 0x7B;
+"69
 [e = _T2CON -> -> 123 `i `uc ]
-[; ;tmr2.c: 71: PR2 = 0xF3;
-"71
-[e = _PR2 -> -> 243 `i `uc ]
-[; ;tmr2.c: 74: TMR2 = 0x00;
-"74
+[; ;tmr2.c: 72: PR2 = 0x79;
+"72
+[e = _PR2 -> -> 121 `i `uc ]
+[; ;tmr2.c: 75: TMR2 = 0x00;
+"75
 [e = _TMR2 -> -> 0 `i `uc ]
-[; ;tmr2.c: 77: PIR1bits.TMR2IF = 0;
-"77
+[; ;tmr2.c: 78: PIR1bits.TMR2IF = 0;
+"78
 [e = . . _PIR1bits 0 1 -> -> 0 `i `uc ]
-[; ;tmr2.c: 80: PIE1bits.TMR2IE = 1;
-"80
+[; ;tmr2.c: 81: PIE1bits.TMR2IE = 1;
+"81
 [e = . . _PIE1bits 0 1 -> -> 1 `i `uc ]
-[; ;tmr2.c: 83: TMR2_SetInterruptHandler(TMR2_DefaultInterruptHandler);
-"83
+[; ;tmr2.c: 84: TMR2_SetInterruptHandler(TMR2_DefaultInterruptHandler);
+"84
 [e ( _TMR2_SetInterruptHandler (1 &U _TMR2_DefaultInterruptHandler ]
-[; ;tmr2.c: 86: TMR2_StartTimer();
-"86
-[e ( _TMR2_StartTimer ..  ]
-[; ;tmr2.c: 87: }
+[; ;tmr2.c: 87: TMR2_StartTimer();
 "87
+[e ( _TMR2_StartTimer ..  ]
+[; ;tmr2.c: 88: }
+"88
 [e :UE 290 ]
 }
-"89
-[v _TMR2_StartTimer `(v ~T0 @X0 1 ef ]
 "90
+[v _TMR2_StartTimer `(v ~T0 @X0 1 ef ]
+"91
 {
-[; ;tmr2.c: 89: void TMR2_StartTimer(void)
-[; ;tmr2.c: 90: {
+[; ;tmr2.c: 90: void TMR2_StartTimer(void)
+[; ;tmr2.c: 91: {
 [e :U _TMR2_StartTimer ]
 [f ]
-[; ;tmr2.c: 92: T2CONbits.TMR2ON = 1;
-"92
-[e = . . _T2CONbits 0 1 -> -> 1 `i `uc ]
-[; ;tmr2.c: 93: }
+[; ;tmr2.c: 93: T2CONbits.TMR2ON = 1;
 "93
+[e = . . _T2CONbits 0 1 -> -> 1 `i `uc ]
+[; ;tmr2.c: 94: }
+"94
 [e :UE 291 ]
 }
-"95
-[v _TMR2_StopTimer `(v ~T0 @X0 1 ef ]
 "96
+[v _TMR2_StopTimer `(v ~T0 @X0 1 ef ]
+"97
 {
-[; ;tmr2.c: 95: void TMR2_StopTimer(void)
-[; ;tmr2.c: 96: {
+[; ;tmr2.c: 96: void TMR2_StopTimer(void)
+[; ;tmr2.c: 97: {
 [e :U _TMR2_StopTimer ]
 [f ]
-[; ;tmr2.c: 98: T2CONbits.TMR2ON = 0;
-"98
-[e = . . _T2CONbits 0 1 -> -> 0 `i `uc ]
-[; ;tmr2.c: 99: }
+[; ;tmr2.c: 99: T2CONbits.TMR2ON = 0;
 "99
+[e = . . _T2CONbits 0 1 -> -> 0 `i `uc ]
+[; ;tmr2.c: 100: }
+"100
 [e :UE 292 ]
 }
-"101
-[v _TMR2_ReadTimer `(uc ~T0 @X0 1 ef ]
 "102
+[v _TMR2_ReadTimer `(uc ~T0 @X0 1 ef ]
+"103
 {
-[; ;tmr2.c: 101: uint8_t TMR2_ReadTimer(void)
-[; ;tmr2.c: 102: {
+[; ;tmr2.c: 102: uint8_t TMR2_ReadTimer(void)
+[; ;tmr2.c: 103: {
 [e :U _TMR2_ReadTimer ]
 [f ]
-"103
+"104
 [v _readVal `uc ~T0 @X0 1 a ]
-[; ;tmr2.c: 103: uint8_t readVal;
-[; ;tmr2.c: 105: readVal = TMR2;
-"105
+[; ;tmr2.c: 104: uint8_t readVal;
+[; ;tmr2.c: 106: readVal = TMR2;
+"106
 [e = _readVal _TMR2 ]
-[; ;tmr2.c: 107: return readVal;
-"107
+[; ;tmr2.c: 108: return readVal;
+"108
 [e ) _readVal ]
 [e $UE 293  ]
-[; ;tmr2.c: 108: }
-"108
+[; ;tmr2.c: 109: }
+"109
 [e :UE 293 ]
 }
-"110
+"111
 [v _TMR2_WriteTimer `(v ~T0 @X0 1 ef1`uc ]
-"111
+"112
 {
-[; ;tmr2.c: 110: void TMR2_WriteTimer(uint8_t timerVal)
-[; ;tmr2.c: 111: {
+[; ;tmr2.c: 111: void TMR2_WriteTimer(uint8_t timerVal)
+[; ;tmr2.c: 112: {
 [e :U _TMR2_WriteTimer ]
-"110
-[v _timerVal `uc ~T0 @X0 1 r1 ]
 "111
+[v _timerVal `uc ~T0 @X0 1 r1 ]
+"112
 [f ]
-[; ;tmr2.c: 113: TMR2 = timerVal;
-"113
-[e = _TMR2 _timerVal ]
-[; ;tmr2.c: 114: }
+[; ;tmr2.c: 114: TMR2 = timerVal;
 "114
+[e = _TMR2 _timerVal ]
+[; ;tmr2.c: 115: }
+"115
 [e :UE 294 ]
 }
-"116
+"117
 [v _TMR2_LoadPeriodRegister `(v ~T0 @X0 1 ef1`uc ]
-"117
-{
-[; ;tmr2.c: 116: void TMR2_LoadPeriodRegister(uint8_t periodVal)
-[; ;tmr2.c: 117: {
-[e :U _TMR2_LoadPeriodRegister ]
-"116
-[v _periodVal `uc ~T0 @X0 1 r1 ]
-"117
-[f ]
-[; ;tmr2.c: 118: PR2 = periodVal;
 "118
-[e = _PR2 _periodVal ]
-[; ;tmr2.c: 119: }
+{
+[; ;tmr2.c: 117: void TMR2_LoadPeriodRegister(uint8_t periodVal)
+[; ;tmr2.c: 118: {
+[e :U _TMR2_LoadPeriodRegister ]
+"117
+[v _periodVal `uc ~T0 @X0 1 r1 ]
+"118
+[f ]
+[; ;tmr2.c: 119: PR2 = periodVal;
 "119
+[e = _PR2 _periodVal ]
+[; ;tmr2.c: 120: }
+"120
 [e :UE 295 ]
 }
-"121
-[v _TMR2_ISR `(v ~T0 @X0 1 ef ]
 "122
+[v _TMR2_ISR `(v ~T0 @X0 1 ef ]
+"123
 {
-[; ;tmr2.c: 121: void TMR2_ISR(void)
-[; ;tmr2.c: 122: {
+[; ;tmr2.c: 122: void TMR2_ISR(void)
+[; ;tmr2.c: 123: {
 [e :U _TMR2_ISR ]
 [f ]
-[; ;tmr2.c: 125: PIR1bits.TMR2IF = 0;
-"125
+[; ;tmr2.c: 126: PIR1bits.TMR2IF = 0;
+"126
 [e = . . _PIR1bits 0 1 -> -> 0 `i `uc ]
-[; ;tmr2.c: 127: if(TMR2_InterruptHandler)
-"127
-[e $ ! != _TMR2_InterruptHandler -> -> 0 `i `*F2518 297  ]
-[; ;tmr2.c: 128: {
-"128
-{
-[; ;tmr2.c: 129: TMR2_InterruptHandler();
-"129
-[e ( *U _TMR2_InterruptHandler ..  ]
+[; ;tmr2.c: 130: if(RunCycle = 1)
 "130
+[e $ ! != -> = _RunCycle -> -> 1 `i `uc `i -> -> -> 0 `i `uc `i 297  ]
+[; ;tmr2.c: 131: {
+"131
+{
+[; ;tmr2.c: 132: CycleTime--;
+"132
+[e -- _CycleTime -> 1 `i ]
+"133
 }
 [e :U 297 ]
-[; ;tmr2.c: 130: }
-[; ;tmr2.c: 131: }
-"131
+[; ;tmr2.c: 133: }
+[; ;tmr2.c: 134: }
+"134
 [e :UE 296 ]
 }
-"134
+"137
 [v _TMR2_SetInterruptHandler `(v ~T0 @X0 1 ef1`*F2515 ]
 {
-[; ;tmr2.c: 134: void TMR2_SetInterruptHandler(void (* InterruptHandler)(void)){
+[; ;tmr2.c: 137: void TMR2_SetInterruptHandler(void (* InterruptHandler)(void)){
 [e :U _TMR2_SetInterruptHandler ]
-[v F2534 `(v ~T0 @X0 0 tf ]
-[v _InterruptHandler `*F2534 ~T0 @X0 1 r1 ]
+[v F2538 `(v ~T0 @X0 0 tf ]
+[v _InterruptHandler `*F2538 ~T0 @X0 1 r1 ]
 [f ]
-[; ;tmr2.c: 135: TMR2_InterruptHandler = InterruptHandler;
-"135
+[; ;tmr2.c: 138: TMR2_InterruptHandler = InterruptHandler;
+"138
 [e = _TMR2_InterruptHandler _InterruptHandler ]
-[; ;tmr2.c: 136: }
-"136
+[; ;tmr2.c: 139: }
+"139
 [e :UE 298 ]
 }
-"138
+"141
 [v _TMR2_DefaultInterruptHandler `(v ~T0 @X0 1 ef ]
 {
-[; ;tmr2.c: 138: void TMR2_DefaultInterruptHandler(void){
+[; ;tmr2.c: 141: void TMR2_DefaultInterruptHandler(void){
 [e :U _TMR2_DefaultInterruptHandler ]
 [f ]
-[; ;tmr2.c: 141: }
-"141
+[; ;tmr2.c: 144: }
+"144
 [e :UE 299 ]
 }

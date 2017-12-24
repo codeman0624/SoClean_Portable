@@ -49,6 +49,8 @@
 
 #include <xc.h>
 #include "tmr0.h"
+#include "pin_manager.h"
+#include "../Variables.h"
 
 /**
   Section: Global Variables Definitions
@@ -67,11 +69,11 @@ void TMR0_Initialize(void)
     // PSA assigned; PS 1:256; TMRSE Increment_hi_lo; mask the nWPUEN and INTEDG bits
     OPTION_REG = (uint8_t)((OPTION_REG & 0xC0) | 0xD7 & 0x3F); 
 
-    // TMR0 12; 
-    TMR0 = 0x0C;
+    // TMR0 134; 
+    TMR0 = 0x86;
 
     // Load the TMR value to reload variable
-    timer0ReloadVal= 12;
+    timer0ReloadVal= 134;
 
     // Clear Interrupt flag before enabling the interrupt
     INTCONbits.TMR0IF = 0;
@@ -113,12 +115,18 @@ void TMR0_ISR(void)
 
     TMR0 = timer0ReloadVal;
 
-    if(TMR0_InterruptHandler)
+    //If the startup count is expired, then set the Green LED low, otherwise
+    //  toggle the Green LED
+    if(StartupCounter == 0)
     {
-        TMR0_InterruptHandler();
+        StartupCounter = 0;
+        GREEN_LED_SetLow();
     }
-
-    // add your TMR0 interrupt custom code
+    else
+    {
+        StartupCounter--;
+        GREEN_LED_Toggle();
+    }
 }
 
 

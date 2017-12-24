@@ -49,6 +49,7 @@
 
 #include <xc.h>
 #include "tmr2.h"
+#include "../Variables.h"
 
 /**
   Section: Global Variables Definitions
@@ -67,8 +68,8 @@ void TMR2_Initialize(void)
     // T2CKPS 1:64; T2OUTPS 1:16; TMR2ON off; 
     T2CON = 0x7B;
 
-    // PR2 243; 
-    PR2 = 0xF3;
+    // PR2 121; 
+    PR2 = 0x79;
 
     // TMR2 0; 
     TMR2 = 0x00;
@@ -124,9 +125,11 @@ void TMR2_ISR(void)
     // clear the TMR2 interrupt flag
     PIR1bits.TMR2IF = 0;
 
-    if(TMR2_InterruptHandler)
+    //If the cycle is running, then decrement the CycleTime
+    //  counter variable every second
+    if(RunCycle = 1)
     {
-        TMR2_InterruptHandler();
+        CycleTime--;
     }
 }
 

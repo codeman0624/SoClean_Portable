@@ -15,6 +15,7 @@
         <itemPath>mcc_generated_files/mcc.h</itemPath>
         <itemPath>mcc_generated_files/tmr2.h</itemPath>
       </logicalFolder>
+      <itemPath>Variables.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -51,7 +52,7 @@
         <targetDevice>PIC12F1501</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>PICkit3PlatformTool</platformTool>
+        <platformTool>Simulator</platformTool>
         <languageToolchain>XC8</languageToolchain>
         <languageToolchainVersion>1.38</languageToolchainVersion>
         <platform>3</platform>
@@ -148,6 +149,10 @@
         <property key="opt-xc8-linker-serial" value=""/>
         <property key="program-the-device-with-default-config-words" value="true"/>
       </HI-TECH-LINK>
+      <Simulator>
+        <property key="W0230_ADC_TRIGSEL_NOT_SUPPORTED" value="report"/>
+        <property key="W0701_CLC_CLCOUT_AS_INPUT" value="report"/>
+      </Simulator>
       <XC8-config-global>
         <property key="advanced-elf" value="true"/>
         <property key="output-file-format" value="-mcof,+elf"/>

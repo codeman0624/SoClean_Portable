@@ -2,10 +2,23 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p mainexit ]
 "72 mcc_generated_files/mcc.h
 [v _SYSTEM_Initialize `(v ~T0 @X0 0 ef ]
+"1513 F:\Microchip\XC8\include\pic12f1501.h
+[s S92 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S92 . LATA0 LATA1 LATA2 . LATA4 LATA5 ]
+"1512
+[u S91 `S92 1 ]
+[n S91 . . ]
+"1522
+[v _LATAbits `VS91 ~T0 @X0 0 e@268 ]
 [v F2466 `(v ~T0 @X0 1 tf1`ul ]
 "152 F:\Microchip\XC8\include\pic.h
 [v __delay `JF2466 ~T0 @X0 0 e ]
 [p i __delay ]
+"84 main.c
+[c E2511 2 29 30 31 .. ]
+[n E2511 . ADC_Input channel_Temp channel_DAC channel_FVR  ]
+"287 mcc_generated_files/adc.h
+[v _ADC_GetConversion `(ui ~T0 @X0 0 ef1`E2511 ]
 "420 F:\Microchip\XC8\include\pic12f1501.h
 [s S30 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S30 . RA0 RA1 RA2 RA3 RA4 RA5 ]
@@ -14,6 +27,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S29 . . ]
 "429
 [v _PORTAbits `VS29 ~T0 @X0 0 e@12 ]
+"343
+[s S27 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S27 . IOCIF INTF TMR0IF IOCIE INTE TMR0IE PEIE GIE ]
+"353
+[s S28 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S28 . . T0IF . T0IE ]
+"342
+[u S26 `S27 1 `S28 1 ]
+[n S26 . . . ]
+"360
+[v _INTCONbits `VS26 ~T0 @X0 0 e@11 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -2482,38 +2506,240 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;mcc.h: 72: void SYSTEM_Initialize(void);
 [; ;mcc.h: 85: void OSCILLATOR_Initialize(void);
 [; ;mcc.h: 98: void WDT_Initialize(void);
-"48 main.c
+"47 Variables.h
+[v _StartupCounter `Vuc ~T0 @X0 1 e ]
+[i _StartupCounter
+-> -> 120 `i `uc
+]
+[; ;Variables.h: 47: volatile uint8_t StartupCounter = 120;
+"55
+[v _CycleTime `Vi ~T0 @X0 1 e ]
+[i _CycleTime
+-> 390 `i
+]
+[; ;Variables.h: 55: volatile int CycleTime = 390;
+"69
+[v _RunCycle `uc ~T0 @X0 1 e ]
+[i _RunCycle
+-> -> 0 `i `uc
+]
+[; ;Variables.h: 69: uint8_t RunCycle = 0;
+"70
+[v _Counter `uc ~T0 @X0 1 e ]
+[i _Counter
+-> -> 0 `i `uc
+]
+[; ;Variables.h: 70: uint8_t Counter = 0;
+"49 main.c
 [v _main `(v ~T0 @X0 1 ef ]
-"49
+"50
 {
-[; ;main.c: 48: void main(void)
-[; ;main.c: 49: {
+[; ;main.c: 49: void main(void)
+[; ;main.c: 50: {
 [e :U _main ]
 [f ]
-[; ;main.c: 51: SYSTEM_Initialize();
-"51
+[; ;main.c: 52: SYSTEM_Initialize();
+"52
 [e ( _SYSTEM_Initialize ..  ]
-[; ;main.c: 70: while(PORTAbits.RA3)
+[; ;main.c: 70: do { LATAbits.LATA1 = 0; } while(0);
 "70
-[e $U 292  ]
-[e :U 293 ]
-[; ;main.c: 71: {
-"71
-{
-[; ;main.c: 72: _delay((unsigned long)((10)*(500000/4000.0)));
-"72
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 500000 `l `d .4000.0 `ul ]
-"73
-}
-[e :U 292 ]
-"70
-[e $ != -> . . _PORTAbits 0 3 `i -> -> -> 0 `i `Vuc `i 293  ]
 [e :U 294 ]
-[; ;main.c: 73: }
-[; ;main.c: 75: _delay((unsigned long)((50)*(500000/4000.0)));
+{
+[e = . . _LATAbits 0 1 -> -> 0 `i `uc ]
+}
+[e :U 293 ]
+[; ;main.c: 71: do { LATAbits.LATA0 = 0; } while(0);
+"71
+[e :U 297 ]
+{
+[e = . . _LATAbits 0 0 -> -> 0 `i `uc ]
+}
+[e :U 296 ]
+[; ;main.c: 72: do { LATAbits.LATA5 = 0; } while(0);
+"72
+[e :U 300 ]
+{
+[e = . . _LATAbits 0 5 -> -> 0 `i `uc ]
+}
+[e :U 299 ]
+[; ;main.c: 75: Counter = 10;
 "75
-[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 500000 `l `d .4000.0 `ul ]
-[; ;main.c: 77: }
+[e = _Counter -> -> 10 `i `uc ]
+[; ;main.c: 76: while(Counter--)
+"76
+[e $U 301  ]
+[e :U 302 ]
+[; ;main.c: 77: {
 "77
+{
+[; ;main.c: 78: _delay((unsigned long)((50)*(500000/4000.0)));
+"78
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 500000 `l `d .4000.0 `ul ]
+"79
+}
+[e :U 301 ]
+"76
+[e $ != -> -- _Counter -> -> 1 `i `uc `i -> -> -> 0 `i `uc `i 302  ]
+[e :U 303 ]
+[; ;main.c: 79: }
+[; ;main.c: 84: if(ADC_GetConversion(ADC_Input) < 485)
+"84
+[e $ ! < ( _ADC_GetConversion (1 . `E2511 0 -> -> 485 `i `ui 304  ]
+[; ;main.c: 85: {
+"85
+{
+[; ;main.c: 86: do { LATAbits.LATA0 = 1; } while(0);
+"86
+[e :U 307 ]
+{
+[e = . . _LATAbits 0 0 -> -> 1 `i `uc ]
+}
+[e :U 306 ]
+[; ;main.c: 87: asm("sleep");
+"87
+[; <" sleep ;# ">
+"88
+}
+[; ;main.c: 88: }
+[e $U 308  ]
+"90
+[e :U 304 ]
+[; ;main.c: 90: else
+[; ;main.c: 91: {
+"91
+{
+[; ;main.c: 92: while(1)
+"92
+[e :U 310 ]
+[; ;main.c: 93: {
+"93
+{
+[; ;main.c: 94: RunCycle = 0;
+"94
+[e = _RunCycle -> -> 0 `i `uc ]
+[; ;main.c: 96: while(PORTAbits.RA3)
+"96
+[e $U 312  ]
+[e :U 313 ]
+[; ;main.c: 97: {
+"97
+{
+[; ;main.c: 99: if(StartupCounter == 0)
+"99
+[e $ ! == -> _StartupCounter `i -> 0 `i 315  ]
+[; ;main.c: 100: {
+"100
+{
+[; ;main.c: 101: asm("sleep");
+"101
+[; <" sleep ;# ">
+"102
+}
+[e :U 315 ]
+"103
+}
+[e :U 312 ]
+"96
+[e $ != -> . . _PORTAbits 0 3 `i -> -> -> 0 `i `Vuc `i 313  ]
+[e :U 314 ]
+[; ;main.c: 102: }
+[; ;main.c: 103: }
+[; ;main.c: 104: _delay((unsigned long)((50)*(500000/4000.0)));
+"104
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 500000 `l `d .4000.0 `ul ]
+[; ;main.c: 106: if(!PORTAbits.RA3)
+"106
+[e $ ! ! != -> . . _PORTAbits 0 3 `i -> -> -> 0 `i `Vuc `i 316  ]
+[; ;main.c: 107: {
+"107
+{
+[; ;main.c: 108: break;
+"108
+[e $U 311  ]
+"109
+}
+[e :U 316 ]
+"110
+}
+[e :U 309 ]
+"92
+[e $U 310  ]
+[e :U 311 ]
+[; ;main.c: 109: }
+[; ;main.c: 110: }
+[; ;main.c: 111: INTCONbits.TMR0IE = 0;
+"111
+[e = . . _INTCONbits 0 5 -> -> 0 `i `uc ]
+[; ;main.c: 115: RunCycle = 1;
+"115
+[e = _RunCycle -> -> 1 `i `uc ]
+[; ;main.c: 118: while(CycleTime > 0)
+"118
+[e $U 317  ]
+[e :U 318 ]
+[; ;main.c: 119: {
+"119
+{
+[; ;main.c: 121: do { LATAbits.LATA1 = 1; } while(0);
+"121
+[e :U 322 ]
+{
+[e = . . _LATAbits 0 1 -> -> 1 `i `uc ]
+}
+[e :U 321 ]
+[; ;main.c: 123: do { LATAbits.LATA5 = 1; } while(0);
+"123
+[e :U 325 ]
+{
+[e = . . _LATAbits 0 5 -> -> 1 `i `uc ]
+}
+[e :U 324 ]
+"124
+}
+[e :U 317 ]
+"118
+[e $ > _CycleTime -> 0 `i 318  ]
+[e :U 319 ]
+[; ;main.c: 124: }
+[; ;main.c: 127: do { LATAbits.LATA1 = 0; } while(0);
+"127
+[e :U 328 ]
+{
+[e = . . _LATAbits 0 1 -> -> 0 `i `uc ]
+}
+[e :U 327 ]
+[; ;main.c: 128: do { LATAbits.LATA5 = 0; } while(0);
+"128
+[e :U 331 ]
+{
+[e = . . _LATAbits 0 5 -> -> 0 `i `uc ]
+}
+[e :U 330 ]
+[; ;main.c: 132: if(ADC_GetConversion(ADC_Input) < 485)
+"132
+[e $ ! < ( _ADC_GetConversion (1 . `E2511 0 -> -> 485 `i `ui 332  ]
+[; ;main.c: 133: {
+"133
+{
+[; ;main.c: 134: do { LATAbits.LATA0 = 1; } while(0);
+"134
+[e :U 335 ]
+{
+[e = . . _LATAbits 0 0 -> -> 1 `i `uc ]
+}
+[e :U 334 ]
+"135
+}
+[e :U 332 ]
+[; ;main.c: 135: }
+[; ;main.c: 138: asm("sleep");
+"138
+[; <" sleep ;# ">
+"141
+}
+[e :U 308 ]
+[; ;main.c: 141: }
+[; ;main.c: 146: }
+"146
 [e :UE 291 ]
 }

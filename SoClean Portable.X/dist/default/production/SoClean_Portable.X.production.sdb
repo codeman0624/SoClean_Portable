@@ -10,14 +10,23 @@ channel_Temp 29
 channel_DAC 30
 channel_FVR 31
 ]
+"84 F:\SoClean Portable\SoClean_Portable\SoClean Portable.X\main.c
+[e E2511 . `uc
+ADC_Input 2
+channel_Temp 29
+channel_DAC 30
+channel_FVR 31
+]
 "62 F:\Microchip\XC8\sources\common\float.c
 [v ___ftpack __ftpack `(f  1 e 3 0 ]
 "86 F:\Microchip\XC8\sources\common\ftadd.c
 [v ___ftadd __ftadd `(f  1 e 3 0 ]
-"48 F:\SoClean Portable\SoClean_Portable\SoClean Portable.X\main.c
+"49 F:\SoClean Portable\SoClean_Portable\SoClean Portable.X\main.c
 [v _main main `(v  1 e 1 0 ]
 "64 F:\SoClean Portable\SoClean_Portable\SoClean Portable.X\mcc_generated_files/adc.c
 [v _ADC_Initialize ADC_Initialize `(v  1 e 1 0 ]
+"114
+[v _ADC_GetConversion ADC_GetConversion `(ui  1 e 2 0 ]
 "137
 [v _ADC_ISR ADC_ISR `(v  1 e 1 0 ]
 "51 F:\SoClean Portable\SoClean_Portable\SoClean Portable.X\mcc_generated_files/interrupt_manager.c
@@ -30,13 +39,13 @@ channel_FVR 31
 [v _WDT_Initialize WDT_Initialize `(v  1 e 1 0 ]
 "52 F:\SoClean Portable\SoClean_Portable\SoClean Portable.X\mcc_generated_files/pin_manager.c
 [v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 1 0 ]
-"63 F:\SoClean Portable\SoClean_Portable\SoClean Portable.X\mcc_generated_files/tmr0.c
+"65 F:\SoClean Portable\SoClean_Portable\SoClean Portable.X\mcc_generated_files/tmr0.c
 [v _TMR0_Initialize TMR0_Initialize `(v  1 e 1 0 ]
-"108
+"110
 [v _TMR0_ISR TMR0_ISR `(v  1 e 1 0 ]
-"125
+"133
 [v _TMR0_SetInterruptHandler TMR0_SetInterruptHandler `(v  1 e 1 0 ]
-"129
+"137
 [v _TMR0_DefaultInterruptHandler TMR0_DefaultInterruptHandler `(v  1 e 1 0 ]
 "63 F:\SoClean Portable\SoClean_Portable\SoClean Portable.X\mcc_generated_files/tmr1.c
 [v _TMR1_Initialize TMR1_Initialize `(v  1 e 1 0 ]
@@ -48,15 +57,15 @@ channel_FVR 31
 [v _TMR1_SetInterruptHandler TMR1_SetInterruptHandler `(v  1 e 1 0 ]
 "180
 [v _TMR1_DefaultInterruptHandler TMR1_DefaultInterruptHandler `(v  1 e 1 0 ]
-"63 F:\SoClean Portable\SoClean_Portable\SoClean Portable.X\mcc_generated_files/tmr2.c
+"64 F:\SoClean Portable\SoClean_Portable\SoClean Portable.X\mcc_generated_files/tmr2.c
 [v _TMR2_Initialize TMR2_Initialize `(v  1 e 1 0 ]
-"89
+"90
 [v _TMR2_StartTimer TMR2_StartTimer `(v  1 e 1 0 ]
-"121
+"122
 [v _TMR2_ISR TMR2_ISR `(v  1 e 1 0 ]
-"134
+"137
 [v _TMR2_SetInterruptHandler TMR2_SetInterruptHandler `(v  1 e 1 0 ]
-"138
+"141
 [v _TMR2_DefaultInterruptHandler TMR2_DefaultInterruptHandler `(v  1 e 1 0 ]
 [s S167 . 1 `uc 1 IOCIF 1 0 :1:0 
 `uc 1 INTF 1 0 :1:1 
@@ -75,7 +84,7 @@ channel_FVR 31
 ]
 [u S181 . 1 `S167 1 . 1 0 `S176 1 . 1 0 ]
 [v _INTCONbits INTCONbits `VES181  1 e 1 @11 ]
-[s S527 . 1 `uc 1 RA0 1 0 :1:0 
+[s S572 . 1 `uc 1 RA0 1 0 :1:0 
 `uc 1 RA1 1 0 :1:1 
 `uc 1 RA2 1 0 :1:2 
 `uc 1 RA3 1 0 :1:3 
@@ -83,8 +92,8 @@ channel_FVR 31
 `uc 1 RA5 1 0 :1:5 
 ]
 "429
-[u S534 . 1 `S527 1 . 1 0 ]
-[v _PORTAbits PORTAbits `VES534  1 e 1 @12 ]
+[u S579 . 1 `S572 1 . 1 0 ]
+[v _PORTAbits PORTAbits `VES579  1 e 1 @12 ]
 [s S130 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 . 1 0 :4:2 
@@ -140,12 +149,12 @@ channel_FVR 31
 [v _PR2 PR2 `VEuc  1 e 1 @27 ]
 "789
 [v _T2CON T2CON `VEuc  1 e 1 @28 ]
-[s S477 . 1 `uc 1 T2CKPS 1 0 :2:0 
+[s S503 . 1 `uc 1 T2CKPS 1 0 :2:0 
 `uc 1 TMR2ON 1 0 :1:2 
 `uc 1 T2OUTPS 1 0 :4:3 
 ]
 "810
-[s S481 . 1 `uc 1 T2CKPS0 1 0 :1:0 
+[s S507 . 1 `uc 1 T2CKPS0 1 0 :1:0 
 `uc 1 T2CKPS1 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 TOUTPS0 1 0 :1:3 
@@ -153,8 +162,8 @@ channel_FVR 31
 `uc 1 TOUTPS2 1 0 :1:5 
 `uc 1 TOUTPS3 1 0 :1:6 
 ]
-[u S489 . 1 `S477 1 . 1 0 `S481 1 . 1 0 ]
-[v _T2CONbits T2CONbits `VES489  1 e 1 @28 ]
+[u S515 . 1 `S503 1 . 1 0 `S507 1 . 1 0 ]
+[v _T2CONbits T2CONbits `VES515  1 e 1 @28 ]
 "859
 [v _TRISA TRISA `VEuc  1 e 1 @140 ]
 [s S69 . 1 `uc 1 TMR1IE 1 0 :1:0 
@@ -219,26 +228,44 @@ channel_FVR 31
 [v _ADCON2 ADCON2 `VEuc  1 e 1 @159 ]
 "1507
 [v _LATA LATA `VEuc  1 e 1 @268 ]
+[s S402 . 1 `uc 1 LATA0 1 0 :1:0 
+`uc 1 LATA1 1 0 :1:1 
+`uc 1 LATA2 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 LATA4 1 0 :1:4 
+`uc 1 LATA5 1 0 :1:5 
+]
+"1522
+[u S409 . 1 `S402 1 . 1 0 ]
+[v _LATAbits LATAbits `VES409  1 e 1 @268 ]
 "1895
 [v _APFCON APFCON `VEuc  1 e 1 @285 ]
 "1940
 [v _ANSELA ANSELA `VEuc  1 e 1 @396 ]
 "2168
 [v _WPUA WPUA `VEuc  1 e 1 @524 ]
-"57 F:\SoClean Portable\SoClean_Portable\SoClean Portable.X\mcc_generated_files/tmr0.c
+"59 F:\SoClean Portable\SoClean_Portable\SoClean Portable.X\mcc_generated_files/tmr0.c
 [v _timer0ReloadVal timer0ReloadVal `VEuc  1 e 1 0 ]
-"58
+"60
 [v _TMR0_InterruptHandler TMR0_InterruptHandler `*.37(v  1 e 2 0 ]
 "56 F:\SoClean Portable\SoClean_Portable\SoClean Portable.X\mcc_generated_files/tmr1.c
 [v _timer1ReloadVal timer1ReloadVal `VEui  1 e 2 0 ]
 "57
 [v _TMR1_InterruptHandler TMR1_InterruptHandler `*.37(v  1 e 2 0 ]
-"57 F:\SoClean Portable\SoClean_Portable\SoClean Portable.X\mcc_generated_files/tmr2.c
+"58 F:\SoClean Portable\SoClean_Portable\SoClean Portable.X\mcc_generated_files/tmr2.c
 [v _TMR2_InterruptHandler TMR2_InterruptHandler `*.37(v  1 e 2 0 ]
-"48 F:\SoClean Portable\SoClean_Portable\SoClean Portable.X\main.c
+"47 F:\SoClean Portable\SoClean_Portable\SoClean Portable.X\Variables.h
+[v _StartupCounter StartupCounter `VEuc  1 e 1 0 ]
+"55
+[v _CycleTime CycleTime `VEi  1 e 2 0 ]
+"69
+[v _RunCycle RunCycle `uc  1 e 1 0 ]
+"70
+[v _Counter Counter `uc  1 e 1 0 ]
+"49 F:\SoClean Portable\SoClean_Portable\SoClean Portable.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"77
+"146
 } 0
 "66 F:\SoClean Portable\SoClean_Portable\SoClean Portable.X\mcc_generated_files/mcc.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
@@ -250,21 +277,21 @@ channel_FVR 31
 {
 "88
 } 0
-"63 F:\SoClean Portable\SoClean_Portable\SoClean Portable.X\mcc_generated_files/tmr2.c
+"64 F:\SoClean Portable\SoClean_Portable\SoClean Portable.X\mcc_generated_files/tmr2.c
 [v _TMR2_Initialize TMR2_Initialize `(v  1 e 1 0 ]
 {
-"87
+"88
 } 0
-"89
+"90
 [v _TMR2_StartTimer TMR2_StartTimer `(v  1 e 1 0 ]
 {
-"93
+"94
 } 0
-"134
+"137
 [v _TMR2_SetInterruptHandler TMR2_SetInterruptHandler `(v  1 e 1 0 ]
 {
 [v TMR2_SetInterruptHandler@InterruptHandler InterruptHandler `*.37(v  1 p 2 1 ]
-"136
+"139
 } 0
 "63 F:\SoClean Portable\SoClean_Portable\SoClean Portable.X\mcc_generated_files/tmr1.c
 [v _TMR1_Initialize TMR1_Initialize `(v  1 e 1 0 ]
@@ -282,16 +309,16 @@ channel_FVR 31
 [v TMR1_SetInterruptHandler@InterruptHandler InterruptHandler `*.37(v  1 p 2 1 ]
 "178
 } 0
-"63 F:\SoClean Portable\SoClean_Portable\SoClean Portable.X\mcc_generated_files/tmr0.c
+"65 F:\SoClean Portable\SoClean_Portable\SoClean Portable.X\mcc_generated_files/tmr0.c
 [v _TMR0_Initialize TMR0_Initialize `(v  1 e 1 0 ]
 {
-"84
+"86
 } 0
-"125
+"133
 [v _TMR0_SetInterruptHandler TMR0_SetInterruptHandler `(v  1 e 1 0 ]
 {
 [v TMR0_SetInterruptHandler@InterruptHandler InterruptHandler `*.37(v  1 p 2 1 ]
-"127
+"135
 } 0
 "52 F:\SoClean Portable\SoClean_Portable\SoClean Portable.X\mcc_generated_files/pin_manager.c
 [v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 1 0 ]
@@ -308,20 +335,24 @@ channel_FVR 31
 {
 "85
 } 0
+"114
+[v _ADC_GetConversion ADC_GetConversion `(ui  1 e 2 0 ]
+{
+[v ADC_GetConversion@channel channel `E2504  1 a 1 wreg ]
+[v ADC_GetConversion@channel channel `E2504  1 a 1 wreg ]
+"117
+[v ADC_GetConversion@channel channel `E2504  1 a 1 4 ]
+"134
+} 0
 "51 F:\SoClean Portable\SoClean_Portable\SoClean Portable.X\mcc_generated_files/interrupt_manager.c
 [v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `II(v  1 e 1 0 ]
 {
 "74
 } 0
-"121 F:\SoClean Portable\SoClean_Portable\SoClean Portable.X\mcc_generated_files/tmr2.c
+"122 F:\SoClean Portable\SoClean_Portable\SoClean Portable.X\mcc_generated_files/tmr2.c
 [v _TMR2_ISR TMR2_ISR `(v  1 e 1 0 ]
 {
-"131
-} 0
-"138
-[v _TMR2_DefaultInterruptHandler TMR2_DefaultInterruptHandler `(v  1 e 1 0 ]
-{
-"141
+"134
 } 0
 "160 F:\SoClean Portable\SoClean_Portable\SoClean Portable.X\mcc_generated_files/tmr1.c
 [v _TMR1_ISR TMR1_ISR `(v  1 e 1 0 ]
@@ -333,15 +364,10 @@ channel_FVR 31
 {
 "183
 } 0
-"108 F:\SoClean Portable\SoClean_Portable\SoClean Portable.X\mcc_generated_files/tmr0.c
+"110 F:\SoClean Portable\SoClean_Portable\SoClean Portable.X\mcc_generated_files/tmr0.c
 [v _TMR0_ISR TMR0_ISR `(v  1 e 1 0 ]
 {
-"122
-} 0
-"129
-[v _TMR0_DefaultInterruptHandler TMR0_DefaultInterruptHandler `(v  1 e 1 0 ]
-{
-"132
+"130
 } 0
 "137 F:\SoClean Portable\SoClean_Portable\SoClean Portable.X\mcc_generated_files/adc.c
 [v _ADC_ISR ADC_ISR `(v  1 e 1 0 ]

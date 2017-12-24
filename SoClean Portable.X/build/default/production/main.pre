@@ -3462,19 +3462,98 @@ void OSCILLATOR_Initialize(void);
 # 98
 void WDT_Initialize(void);
 
-# 48 "main.c"
+# 47 "Variables.h"
+volatile uint8_t StartupCounter = 120;
+
+# 55
+volatile int CycleTime = 390;
+
+# 69
+uint8_t RunCycle = 0;
+uint8_t Counter = 0;
+
+# 49 "main.c"
 void main(void)
 {
 
 SYSTEM_Initialize();
 
 # 70
-while(PORTAbits.RA3)
+do { LATAbits.LATA1 = 0; } while(0);
+do { LATAbits.LATA0 = 0; } while(0);
+do { LATAbits.LATA5 = 0; } while(0);
+
+
+Counter = 10;
+while(Counter--)
 {
-_delay((unsigned long)((10)*(500000/4000.0)));
+_delay((unsigned long)((50)*(500000/4000.0)));
 }
 
+
+
+
+if(ADC_GetConversion(ADC_Input) < 485)
+{
+do { LATAbits.LATA0 = 1; } while(0);
+asm("sleep");
+}
+
+else
+{
+while(1)
+{
+RunCycle = 0;
+
+while(PORTAbits.RA3)
+{
+
+if(StartupCounter == 0)
+{
+asm("sleep");
+}
+}
 _delay((unsigned long)((50)*(500000/4000.0)));
+
+if(!PORTAbits.RA3)
+{
+break;
+}
+}
+INTCONbits.TMR0IE = 0;
+
+
+
+RunCycle = 1;
+
+
+while(CycleTime > 0)
+{
+
+do { LATAbits.LATA1 = 1; } while(0);
+
+do { LATAbits.LATA5 = 1; } while(0);
+}
+
+
+do { LATAbits.LATA1 = 0; } while(0);
+do { LATAbits.LATA5 = 0; } while(0);
+
+
+
+if(ADC_GetConversion(ADC_Input) < 485)
+{
+do { LATAbits.LATA0 = 1; } while(0);
+}
+
+
+asm("sleep");
+
+
+}
+
+
+
 
 }
 

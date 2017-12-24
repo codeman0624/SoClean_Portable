@@ -3338,11 +3338,27 @@ extern void (*TMR0_InterruptHandler)(void);
 # 275
 void TMR0_DefaultInterruptHandler(void);
 
-# 57 "mcc_generated_files/tmr0.c"
+# 147 "mcc_generated_files/pin_manager.h"
+void PIN_MANAGER_Initialize (void);
+
+# 159
+void PIN_MANAGER_IOC(void);
+
+# 47 "mcc_generated_files/../Variables.h"
+volatile uint8_t StartupCounter = 120;
+
+# 55
+volatile int CycleTime = 390;
+
+# 69
+uint8_t RunCycle = 0;
+uint8_t Counter = 0;
+
+# 59 "mcc_generated_files/tmr0.c"
 volatile uint8_t timer0ReloadVal;
 void (*TMR0_InterruptHandler)(void);
 
-# 63
+# 65
 void TMR0_Initialize(void)
 {
 
@@ -3351,10 +3367,10 @@ void TMR0_Initialize(void)
 OPTION_REG = (uint8_t)((OPTION_REG & 0xC0) | 0xD7 & 0x3F);
 
 
-TMR0 = 0x0C;
+TMR0 = 0x86;
 
 
-timer0ReloadVal= 12;
+timer0ReloadVal= 134;
 
 
 INTCONbits.TMR0IF = 0;
@@ -3396,12 +3412,18 @@ INTCONbits.TMR0IF = 0;
 
 TMR0 = timer0ReloadVal;
 
-if(TMR0_InterruptHandler)
+
+
+if(StartupCounter == 0)
 {
-TMR0_InterruptHandler();
+StartupCounter = 0;
+do { LATAbits.LATA1 = 0; } while(0);
 }
-
-
+else
+{
+StartupCounter--;
+do { LATAbits.LATA1 = ~LATAbits.LATA1; } while(0);
+}
 }
 
 
