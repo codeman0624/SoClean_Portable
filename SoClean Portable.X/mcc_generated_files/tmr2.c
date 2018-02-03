@@ -127,7 +127,7 @@ void TMR2_ISR(void)
 
     //If the cycle is running, then decrement the CycleTime
     //  counter variable every second
-    if(RunCycle = 1)
+    if(RunCycle == 1)
     {
         CycleTime--;
     }

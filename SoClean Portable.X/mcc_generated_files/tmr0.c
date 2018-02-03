@@ -114,7 +114,7 @@ void TMR0_ISR(void)
     INTCONbits.TMR0IF = 0;
 
     TMR0 = timer0ReloadVal;
-
+    
     //If the startup count is expired, then set the Green LED low, otherwise
     //  toggle the Green LED
     if(StartupCounter == 0)
